@@ -5,26 +5,26 @@
     <title>Calendar</title>
 </head>
 <body>
-    <h1>{{year}}/{{month}}</h1>
+    <h1>{{ year }}년 {{ month_name }}:</h1>
     <table border="1">
         <tr>
+            <th>Sunday</th>
             <th>Monday</th>
             <th>Tuesday</th>
             <th>Wednesday</th>
             <th>Thursday</th>
             <th>Friday</th>
             <th>Saturday</th>
-            <th>Sunday</th>
         </tr>
         {% for week in calendar_month %}
             <tr>
                 {% for day in week %}
                     <td>
-                        {% if day == 0 %}
-                            &nbsp;
-                        {% else %}
-                            {{day}}
-                        {% endif %}
+                    {% if day.month != month %}
+                        &nbsp;
+                    {% else %}
+                        {{ day.day }}
+                    {% endif %}
                     </td>
                 {% endfor %}
             </tr>
